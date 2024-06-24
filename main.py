@@ -1,16 +1,18 @@
-from pathlib import Path
-# with open('file3.csv', 'r') as file:
-#   content = file.read()
+# from pathlib import Path
+# file_dir = Path("files")
+# for filepath in file_dir.iterdir():
+#   with open(filepath, 'r') as file:
+#     content = file.read()
+#     new_content = content.replace("amount", "units")
+    
+#   with open(filepath, 'w') as file:
+    
+#     file.write(new_content)
 
-# modified_content = (content[:-1])
-# with open('file3-new.csv', 'w') as file:
-#   file.write(modified_content)
+with open('merged.csv', "r") as file:
+  content = file.readlines()
+  
+content[0] = 'ID,AMOUNT,COST\n'
+with open("merged.csv", "w") as file:
+  file.writelines(content)
 
-
-files_dir = Path("files")
-for filepath in files_dir.iterdir():
-  with open(filepath, 'r') as file:
-    content = file.read()
-    new_content = content[:-1]
-  with open(filepath, 'w') as file:
-    file.write(new_content)
